@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/8a75914b-464b-4d75-b1d4-f234c9258849/resourceGroups/test/providers/Microsoft.Web/sites/callbackListener",
+    "appService.deploySubpath": "."
+}
