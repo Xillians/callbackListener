@@ -12,6 +12,6 @@ app.post("/", (req,res) => {
     return res.end();
 });
 
-const server = app.listen(process.env.port, () => {
+const server = app.listen(process.env.PORT, () => {
     console.log(`Listening on port `, server.address().port);
 });
