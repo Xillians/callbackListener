@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
 const app = express();
+dotenv.config();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -10,6 +12,6 @@ app.post("/", (req,res) => {
     return res.end();
 });
 
-const server = app.listen(3000, () => {
+const server = app.listen(process.env.port, () => {
     console.log(`Listening on port `, server.address().port);
 });
