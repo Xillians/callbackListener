@@ -27,10 +27,6 @@ export class FileSystem {
             if (err)
                 return console.log(err);
         });
-        fs.appendFile(`./data/${callbackId}-callbacks.txt`, "\n", (err) => {
-            if (err)
-                return console.log(err);
-        });
     }
 
     public readCallback(callbackId: string) {
