@@ -18,6 +18,16 @@ app.post("/", (req, res) => {
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname + '../../index.html'));
 });
+app.post("/:callbackId", (req, res) => {
+    const callbackId = req.params.callbackId;
+    console.log("Request body:\n", req.body);
+    fileSystem.createFile(callbackId, req);
+    return res.end();
+});
+app.get("/:callbackId", (req, res) => {
+    const X = fileSystem.readCallback(req.params.callbackId);
+    return res.send(X);
+});
 const server = app.listen(process.env.PORT, () => {
     console.log(`Listening on port `, server.address().port);
 });

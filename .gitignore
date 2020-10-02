@@ -5,7 +5,7 @@ node_modules
 .env
 
 #data file to avoid persisting callback data.
-data/callbacks.txt
+data/
 
 #built javascript
 dist/
