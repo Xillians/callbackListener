@@ -8,6 +8,7 @@
     "start": "node ./dist/app.js",
     "build": "tsc",
     "buildOnSave": "tsc --watch",
+    "heroku-postbuild": "npm install | npm run build",
     "deploy": "git push heroku master"
   },
   "author": "",
