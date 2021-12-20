@@ -24,6 +24,14 @@ app.post("/:callbackId", (req, res) => {
     fileSystem.createFile(callbackId, req);
     return res.end();
 });
+app.post("/:callbackId/timeout", async (req, res) => {
+    const callbackId = req.params.callbackId;
+    let minute = 60 * 1000;
+    console.log("Request body:\n", req.body);
+    await fileSystem.sleep(1 * minute)
+    await fileSystem.createFile(callbackId, req);
+    return res.end();
+});
 app.get("/:callbackId", (req, res) => {
     const X = fileSystem.readCallback(req.params.callbackId);
     return res.send(X);
