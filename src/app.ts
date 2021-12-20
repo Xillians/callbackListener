@@ -60,6 +60,19 @@ app.post("/:callbackId/oops", (req, res) => {
     })
     return res.end();
 });
+app.post("/:callbackId/badGateway", (req, res) => {
+    const quotes = [
+        "A slight miscalculation in teleportation could send you to another world. Or inside a wall. Who knows?",
+        "Where did I park my teleporter?",
+        "ok, Scotty. Beam me up. Scotty?"
+    ];
+    let randomQuote = Math.floor(Math.random() * quotes.length);
+    res.status(502);
+    res.send({
+        "Error": randomQuote
+    })
+    return res.end();
+});
 app.get("/:callbackId", (req, res) => {
     const callback = fileSystem.readCallback(req.params.callbackId);
     return res.send(callback);
