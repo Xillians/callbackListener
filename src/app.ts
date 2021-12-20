@@ -69,7 +69,7 @@ app.post("/:callbackId/badGateway", (req, res) => {
     let randomQuote = Math.floor(Math.random() * quotes.length);
     res.status(502);
     res.send({
-        "Error": randomQuote
+        "Error": quotes[randomQuote]
     })
     return res.end();
 });
