@@ -39,6 +39,13 @@ app.post("/:callbackId/badRequest", (req, res) => {
     })
     return res.end();
 });
+app.post("/:callbackId/unauthorized", (req, res) => {
+    res.status(401);
+    res.send({
+        "Error": "request denied: user unauthorized"
+    })
+    return res.end();
+});
 app.get("/:callbackId", (req, res) => {
     const callback = fileSystem.readCallback(req.params.callbackId);
     return res.send(callback);
