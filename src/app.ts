@@ -32,6 +32,13 @@ app.post("/:callbackId/timeout", async (req, res) => {
     await fileSystem.createFile(callbackId, req);
     return res.end();
 });
+app.post("/:callbackId/badRequest", (req, res) => {
+    res.status(400);
+    res.send({
+        "Error": "request denied: Bad request"
+    })
+    return res.end();
+});
 app.get("/:callbackId", (req, res) => {
     const callback = fileSystem.readCallback(req.params.callbackId);
     return res.send(callback);
