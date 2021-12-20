@@ -33,8 +33,8 @@ app.post("/:callbackId/timeout", async (req, res) => {
     return res.end();
 });
 app.get("/:callbackId", (req, res) => {
-    const X = fileSystem.readCallback(req.params.callbackId);
-    return res.send(X);
+    const callback = fileSystem.readCallback(req.params.callbackId);
+    return res.send(callback);
 });
 const server = app.listen(process.env.PORT, () => {
     console.log(`Listening on port `, server.address().port);
