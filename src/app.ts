@@ -46,6 +46,13 @@ app.post("/:callbackId/unauthorized", (req, res) => {
     })
     return res.end();
 });
+app.post("/:callbackId/forbidden", (req, res) => {
+    res.status(403);
+    res.send({
+        "Error": "request denied: user rejected"
+    })
+    return res.end();
+});
 app.get("/:callbackId", (req, res) => {
     const callback = fileSystem.readCallback(req.params.callbackId);
     return res.send(callback);
