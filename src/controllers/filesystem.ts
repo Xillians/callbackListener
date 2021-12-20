@@ -1,5 +1,4 @@
 import fs from 'fs';
-import { callbackify } from 'util';
 
 export class FileSystem {
     constructor() {
@@ -36,5 +35,10 @@ export class FileSystem {
             console.log(error.message);
             return {"error": `ID: ${callbackId} not found`};
         }
+    }
+    public async sleep(ms: number) {
+        return await new Promise( resolve => {
+            setTimeout(resolve, ms);
+        });
     }
 }
