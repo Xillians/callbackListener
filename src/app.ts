@@ -12,7 +12,8 @@ const fileSystem = new FileSystem()
 
 app.post("/", (req, res) => {
     console.log("Request body:\n", req.body);
-    fileSystem.writeToFile(req)
+    fileSystem.writeToFile(req);
+    res.status(201);
     return res.end();
 });
 app.get("/", (req, res) => {
@@ -22,6 +23,7 @@ app.post("/:callbackId", (req, res) => {
     const callbackId = req.params.callbackId;
     console.log("Request body:\n", req.body);
     fileSystem.createFile(callbackId, req);
+    res.status(201);
     return res.end();
 });
 app.post("/:callbackId/timeout", async (req, res) => {
